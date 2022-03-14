@@ -5,7 +5,16 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-    Scanner sc = new Scanner(System.in);
+        System.out.println("Welcome to Adventure!");    
+
+    Scanner playerInput = new Scanner(System.in);
+
+    String directions = playerInput.next();
+
+        System.out.println();
+
+
+
 
 
     }
