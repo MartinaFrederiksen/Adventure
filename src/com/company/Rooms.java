@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Rooms {
     Rooms room1 = new Rooms ();
         //room1.SetEast(room2);
-        //room1.SetSouth(room4);
+    //room1.SetSouth(room4);
     Rooms room2 = new Rooms ();
     Rooms room3 = new Rooms ();
     Rooms room4 = new Rooms ();
