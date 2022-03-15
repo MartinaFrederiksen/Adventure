@@ -12,10 +12,28 @@ public class Room {
       public Room getNorth() {
             return North;
       }
+      public Room getSouth() {
+            return South;
+      }
+      public Room getEast() {
+            return East;
+      }
+      public Room getWest() {
+            return West;
+      }
 
       //Setters
 
       public void setNorth (Room North){
             this.North = North;
+      }
+      public void setSouth (Room South){
+            this.South = South;
+      }
+      public void setEast (Room East){
+            this.East = East;
+      }
+      public void setWest (Room West){
+            this.West = West;
       }
 }
