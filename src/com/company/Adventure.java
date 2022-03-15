@@ -7,7 +7,7 @@ public class Adventure {
   // Declare variables
   Scanner sc = new Scanner(System.in);
   private Room currentRoom;
-  //private Room requestedRoom;
+
 
   Room room1 = new Room("Room1", "This is room 1");
   Room room2 = new Room("Room2", "This is room 2");
@@ -24,6 +24,8 @@ public class Adventure {
     // Declare which rooms that are available to each other
 
     // Room 1 el. currentRoom
+
+    currentRoom = room1;
 
     room1.setNorth(null);
     room1.setSouth(room4);
@@ -84,11 +86,11 @@ public class Adventure {
     Introduction();
     mapOfRooms();
 
+    System.out.println("You have entered:" + currentRoom);
+
+
     boolean running = true;
     while (running) {
-
-      System.out.println("You have entered: ");
-      System.out.println(currentRoom);
 
       // Plaver Input
       String playerIn = sc.nextLine();
@@ -122,27 +124,34 @@ public class Adventure {
             currentRoom = currentRoom.getSouth();
           }
         }
+        case "look" -> {
+          currentRoom.getDescription();
+        }
         case "help" -> {
           helpMenu();
         }
-        case "exit" -> running = false;
+        case "exit" -> {
+          running = false;
+          System.out.println("Exiting game...");
+        }
       }
     }
 
       }
 
-  private void Introduction() {
-    System.out.println("Welcome to Adventure Game");
-  }
+  private void Introduction(){
+    System.out.println("Welcome to Adventure Game \nWrite help to receives clues");
+     }
 
   private void helpMenu() {
-    System.out.println("Help Menu:" + "\n Exit = End game \n Look: Get description of your current room"
-    );
-  }
+    System.out.println("Help Menu:" + "\nExit = End game \nLook: Get description of your current room"
+    ); }
 
 
     public static void main(String[] args) {
-    new Adventure().execute();
+    Adventure obj = new Adventure();
+    obj.execute();
+
 
 
   }

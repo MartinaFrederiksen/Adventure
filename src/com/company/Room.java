@@ -10,6 +10,7 @@ public class Room {
       }
 
 
+
       //Getters
       public Room getNorth() {
             return North;
@@ -22,6 +23,10 @@ public class Room {
       }
       public Room getWest() {
             return West;
+      }
+
+      public String getDescription(){
+            return description;
       }
 
 
@@ -38,5 +43,8 @@ public class Room {
       }
       public void setWest (Room West){
             this.West = West;
+      }
+      public void setDescription(String description){
+            this.description = description;
       }
 }
