@@ -9,15 +9,20 @@ public class Adventure {
   private Room currentRoom;
 
 
-  Room room1 = new Room("Room1", "This is room 1");
-  Room room2 = new Room("Room2", "This is room 2");
-  Room room3 = new Room("Room3", "This is room 3");
-  Room room4 = new Room("Room4", "This is room 4");
-  Room room5 = new Room("Room5", "This is room 5");
-  Room room6 = new Room("Room6", "This is room 6");
-  Room room7 = new Room("Room7", "This is room 7");
-  Room room8 = new Room("Room8", "This is room 8");
-  Room room9 = new Room("Room9", "This is room 9");
+  Room room1 = new Room("Room 1", "This is room 1" + room1());
+  Room room2 = new Room("Room 2", "This is room 2" + room2());
+  Room room3 = new Room("Room 3", "This is room 3");
+  Room room4 = new Room("Room 4", "This is room 4");
+  Room room5 = new Room("Room 5", "This is room 5");
+  Room room6 = new Room("Room 6", "This is room 6");
+  Room room7 = new Room("Room 7", "This is room 7");
+  Room room8 = new Room("Room 8", "This is room 8");
+  Room room9 = new Room("Room 9", "This is room 9");
+
+  String room1(){
+    return "the room is bloody red";
+  }
+  String room2(){ return "the room is filled with snakes";}
 
 
   public void mapOfRooms() {
@@ -86,7 +91,8 @@ public class Adventure {
     Introduction();
     mapOfRooms();
 
-    System.out.println("You have entered:" + currentRoom);
+    System.out.println("You are now in " + currentRoom);
+
 
 
     boolean running = true;
@@ -125,7 +131,8 @@ public class Adventure {
           }
         }
         case "look" -> {
-          currentRoom.getDescription();
+          System.out.println("you are in: "+ currentRoom);
+          System.out.println(currentRoom.getDescription());
         }
         case "help" -> {
           helpMenu();
@@ -140,7 +147,7 @@ public class Adventure {
       }
 
   private void Introduction(){
-    System.out.println("Welcome to Adventure Game \nWrite help to receives clues");
+    System.out.println("Welcome to the house of horrors, where many obstacles awaits \nOBS: Write help to receives clues");
      }
 
   private void helpMenu() {
