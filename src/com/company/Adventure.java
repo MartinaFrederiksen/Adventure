@@ -9,8 +9,8 @@ public class Adventure {
   private Room currentRoom;
 
 
-  Room room1 = new Room("Room 1", "This is room 1" + room1());
-  Room room2 = new Room("Room 2", "This is room 2" + room2());
+  Room room1 = new Room("Room 1", "This is room 1");
+  Room room2 = new Room("Room 2", "This is room 2");
   Room room3 = new Room("Room 3", "This is room 3");
   Room room4 = new Room("Room 4", "This is room 4");
   Room room5 = new Room("Room 5", "This is room 5");
@@ -40,8 +40,8 @@ public class Adventure {
     //room 2
     room2.setNorth(null);
     room2.setSouth(null);
-    room2.setEast(room1);
-    room2.setWest(room3);
+    room2.setEast(room3);
+    room2.setWest(room1);
 
     //room 3
     room3.setNorth(null);
@@ -107,6 +107,7 @@ public class Adventure {
             System.out.println("Denied, you may not enter");
           } else {
             currentRoom = currentRoom.getEast();
+            System.out.println(currentRoom.getDescription());
           }
         }
         case "go north" -> {
@@ -114,6 +115,7 @@ public class Adventure {
             System.out.println("Denied, you may not enter");
           } else {
             currentRoom = currentRoom.getNorth();
+            System.out.println(currentRoom.getDescription());
           }
         }
         case "go west" -> {
@@ -121,6 +123,7 @@ public class Adventure {
             System.out.println("Denied, you may not enter");
           } else {
             currentRoom = currentRoom.getWest();
+            System.out.println(currentRoom.getDescription());
           }
         }
         case "go south" -> {
@@ -128,6 +131,7 @@ public class Adventure {
             System.out.println("Denied, you may not enter");
           } else {
             currentRoom = currentRoom.getSouth();
+            System.out.println(currentRoom.getDescription());
           }
         }
         case "look" -> {
