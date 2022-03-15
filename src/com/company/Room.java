@@ -8,6 +8,8 @@ public class Room {
       public Room(String name, String description) {
 
       }
+
+
       //Getters
       public Room getNorth() {
             return North;
