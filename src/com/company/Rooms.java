@@ -4,19 +4,19 @@ import java.util.Scanner;
 
 public class Rooms {
 
-    String playerInput = "";
+    String playerInput = "north";
             switch (playerInput){
-                case "north":
-                System.out.println("go north");
+            case "north":
+              System.out.println("go north");
                 break;
-                case "south":
-                System.out.println("go south");
+            case "south":
+              System.out.println("go south");
                 break;
-                case "east":
-                System.out.println("go east");
+            case "east":
+              System.out.println("go east");
                 break;
-                case "west":
-                System.out.println("go west");
+            case "west":
+              System.out.println("go west");
                 break;
             }
 
