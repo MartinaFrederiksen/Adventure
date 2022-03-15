@@ -7,17 +7,17 @@ public class Rooms {
     String playerInput = "north";
             switch (playerInput){
             case "north":
-              System.out.println("go north");
-                break;
+             System.out.println("go north");
+             break;
             case "south":
-              System.out.println("go south");
-                break;
+             System.out.println("go south");
+             break;
             case "east":
-              System.out.println("go east");
-                break;
+             System.out.println("go east");
+             break;
             case "west":
-              System.out.println("go west");
-                break;
+             System.out.println("go west");
+             break;
             }
 
       //room1.SetEast(room2);
