@@ -1,6 +1,12 @@
-import com.company.Room;
+package com.company;
 
+import com.company.Room;
+import com.company.UserInterface;
+
+import java.awt.*;
 import java.util.Scanner;
+
+import static java.awt.Color.*;
 
 public class Map {
 
@@ -10,20 +16,29 @@ public class Map {
   Scanner sc = new Scanner(System.in);
   private Room currentRoom;
 
-  // Declare rooms
-  Room room1 = new Room("Room 1", "This is room 1");
-  Room room2 = new Room("Room 2", "This is room 2");
-  Room room3 = new Room("Room 3", "This is room 3");
-  Room room4 = new Room("Room 4", "This is room 4");
-  Room room5 = new Room("Room 5", "This is room 5");
-  Room room6 = new Room("Room 6", "This is room 6");
-  Room room7 = new Room("Room 7", "This is room 7");
-  Room room8 = new Room("Room 8", "This is room 8");
-  Room room9 = new Room("Room 9", "This is room 9");
+  // Declare rooms = room number + room descriptions
+  Room room1 = new Room("Room 1", room1());
+  Room room2 = new Room("Room 2", room2());
+  Room room3 = new Room("Room 3", room3());
+  Room room4 = new Room("Room 4", room4());
+  Room room5 = new Room("Room 5", room5());
+  Room room6 = new Room("Room 6", room6());
+  Room room7 = new Room("Room 7", room7());
+  Room room8 = new Room("Room 8", room8());
+  Room room9 = new Room("Room 9", room9());
+
 
   // Room descriptions using String --- add to the declaring of rooms
-  String room1(){ return "the room is bloody red";}
-  String room2(){ return "the room is filled with snakes";}
+  String room1(){ return "The room has bloody stains on the walls";}
+  String room2(){ return "The room is filled with snakes";}
+  String room3(){ return "The room is filling up with water, quickly make a move or suffer the consequences";}
+  String room4(){ return "...description pending...";}
+  String room5(){ return "...description pending...";}
+  String room6(){ return "...description pending...";}
+  String room7(){ return "...description pending...";}
+  String room8(){ return "...description pending...";}
+  String room9(){ return "...description pending...";}
+
 
   public void mapOfRooms() {
     // Declare which rooms that are available to each other
@@ -116,7 +131,7 @@ public class Map {
         }
         // Indications of what Look does
         case "look" -> {
-          System.out.println("you are in: "+ currentRoom);
+          System.out.println("You are in: "+ currentRoom);
           System.out.println(currentRoom.getDescription());
         }
         case "help" -> {
