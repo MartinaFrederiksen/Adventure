@@ -24,6 +24,7 @@ public class Room {
     this.description = description;
     this.items = new ArrayList<>();
   }
+
   //constructor
   public Room(String name, String description, ArrayList<Item> items) {
     this.name = name;

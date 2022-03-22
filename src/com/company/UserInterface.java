@@ -12,12 +12,12 @@ public class UserInterface {
     return text;
   }
 
-    public void Introduction () throws InterruptedException {
-      soutPrinter("Welcome to the house of horrors, where many obstacles awaits");
-      System.out.println("Write help to open menu");
-    }
+  public void Introduction() throws InterruptedException {
+    soutPrinter("Welcome to the house of horrors, where many obstacles awaits");
+    System.out.println("Write help to open menu");
+  }
 
-    public void helpMenu () {
+  public void helpMenu() {
     System.out.println("Help Menu:");
     System.out.println("Directions:\n\"Go north\"\n\"Go south\"\n\"Go east\"\n\"Go west\"");
     System.out.println("Look: to get the current description of your current room");
