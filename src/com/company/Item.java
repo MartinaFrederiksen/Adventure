@@ -1,16 +1,23 @@
 package com.company;
 
-public class item {
+
+public class Item {
 
   private String name;
   private String description;
 
-  public item(String name, String description) {
+  //constructor
+  public Item(String name , String description) {
     this.name = name;
     this.description = description;
   }
 
-  //Get
+
+
+
+
+
+  //Getters
   public String getName() {
     return name;
   }
@@ -21,7 +28,7 @@ public class item {
     return name + ": " + description;
   }
 
-  //Set
+  //Setters
   public void setName(String aName){
     this.name = aName;
   }

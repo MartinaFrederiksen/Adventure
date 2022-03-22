@@ -19,9 +19,14 @@ public class UserInterface {
 
     public void helpMenu () {
     System.out.println("Help Menu:");
-    System.out.println("Write Look: to get the current description of your current room");
-    System.out.println("Write Exit: to Quit game");
-    System.out.println("Write Help: to get game directions");
+    System.out.println("Directions:\n\"Go north\"\n\"Go south\"\n\"Go east\"\n\"Go west\"");
+    System.out.println("Look: to get the current description of your current room");
+    System.out.println("Exit: to Quit game");
+    System.out.println("\"Take\" | Pick up an item you find");
+    System.out.println("\"Drop\" | Get rid of an item from your inventory");
+    System.out.println("\"Inventory\" | View your bag of things");
 
   }
+
+
 }

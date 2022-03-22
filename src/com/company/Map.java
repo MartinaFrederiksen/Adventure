@@ -1,12 +1,6 @@
 package com.company;
 
-import com.company.Room;
-import com.company.UserInterface;
-
-import java.awt.*;
 import java.util.Scanner;
-
-import static java.awt.Color.*;
 
 public class Map {
 
@@ -16,9 +10,15 @@ public class Map {
   Scanner sc = new Scanner(System.in);
   private Room currentRoom;
 
+  Item knife = new Item("Knife", "Careful the knife is very sharp");
+  Item sword = new Item("Sword", "congratulations you found the sword of warriors");
+  Item lighter = new Item("Lighter","grey lighter");
+  Item rope = new Item("Rope","10m long rope");
+  Item auqaElix = new Item("Auqa Elixer","Drink this and you can breathe under water");
+
   // Declare rooms = room number + room descriptions
   Room room1 = new Room("Room 1", room1());
-  Room room2 = new Room("Room 2", room2());
+  Room room2 = new Room("Room 2", room2()) ;
   Room room3 = new Room("Room 3", room3());
   Room room4 = new Room("Room 4", room4());
   Room room5 = new Room("Room 5", room5());
@@ -28,16 +28,28 @@ public class Map {
   Room room9 = new Room("Room 9", room9());
 
 
-  // Room descriptions using String --- add to the declaring of rooms
-  String room1(){ return "The room has bloody stains on the walls";}
-  String room2(){ return "The room is filled with snakes";}
-  String room3(){ return "The room is filling up with water, quickly make a move or suffer the consequences";}
+  // Room descriptions using String --- add to the declaring of rooms (SKRIV FLERE DESKRIPTIONER)
+  String room1(){ return "The room has bloody stains on the walls, what do you now?";}
+  String room2(){ return "The room is filled with snakes, where do you go from here?" + "Look for helpful items";}
+  String room3(){ return "The room is filling up with water, quickly make a move or suffer the consequences" + "Look for helpful item";}
   String room4(){ return "...description pending...";}
   String room5(){ return "...description pending...";}
   String room6(){ return "...description pending...";}
   String room7(){ return "...description pending...";}
   String room8(){ return "...description pending...";}
   String room9(){ return "...description pending...";}
+
+  public void placeItems(){ //Place the items in the different rooms
+    room1.getItems().add(knife);
+    room2.getItems().add(rope);
+    room3.getItems().add(auqaElix);
+    room4.getItems().add(lighter);
+
+
+    //ArrayList<Item> test = new ArrayList<>();
+    //test.add(knife);
+
+  }
 
 
   public void mapOfRooms() {
@@ -145,9 +157,5 @@ public class Map {
     }
   }
 
-
-
-
-
-}
+  }
 
