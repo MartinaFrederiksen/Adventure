@@ -32,7 +32,7 @@ public class Room {
     this.items = items;
   }
 
-  //Add item method
+  //Add item method to room
   public void addItem(Item item) {
     items.add(item);
   }
@@ -67,7 +67,7 @@ public class Room {
     return name;
   }
 
-  public ArrayList<Item> getItems() {
+  public ArrayList<Item> getItemsInRoom() {
     return items;
   }
 

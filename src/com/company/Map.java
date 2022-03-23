@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class Map {
 
   UserInterface ui = new UserInterface();
+  Player p = new Player();
 
   // Declare variables
   Scanner sc = new Scanner(System.in);
@@ -15,6 +16,10 @@ public class Map {
   Item lighter = new Item("Lighter", "grey lighter");
   Item rope = new Item("Rope", "10m long rope");
   Item auqaElix = new Item("Auqa Elixer", "Drink this and you can breathe under water");
+  Item bomb = new Item("bomb", " throw it and it says boom");
+  Item Healing = new Item("Heling Potion", "...description pending... ");
+  Item LockPicker = new Item("LockPicker", " ...description pending...");
+  Item axe = new Item("axe", "description pending");
 
   // Declare rooms = room number + room descriptions
   Room room1 = new Room("Room 1", room1());
@@ -30,7 +35,7 @@ public class Map {
 
   // Room descriptions using String --- add to the declaring of rooms (SKRIV FLERE DESKRIPTIONER)
   String room1() {
-    return "The room has bloody stains on the walls, what do you now?" + "Look for helpful items";
+    return "The room has bloody stains on the walls, what do you now?" + " Look for helpful items";
   }
 
   String room2() {
@@ -42,11 +47,11 @@ public class Map {
   }
 
   String room4() {
-    return "...description pending...";
+    return "torture room...be weary of your steps, there are booby trap all over";
   }
 
   String room5() {
-    return "...description pending...";
+    return "congratulations - you have 10 second til every exit locks, hurry make a desicion before you are trapped for ever.";
   }
 
   String room6() {
@@ -66,10 +71,15 @@ public class Map {
   }
 
   public void placeItems() { //Place the items in the different rooms
-    room1.getItems().add(knife);
-    room2.getItems().add(rope);
-    room3.getItems().add(auqaElix);
-    room4.getItems().add(lighter);
+    room1.getItemsInRoom().add(knife);
+    room2.getItemsInRoom().add(rope);
+    room3.getItemsInRoom().add(auqaElix);
+    room4.getItemsInRoom().add(sword);
+    room5.getItemsInRoom().add(bomb);
+    room6.getItemsInRoom().add(Healing);
+    room7.getItemsInRoom().add(LockPicker);
+    room8.getItemsInRoom().add(axe);
+    room9.getItemsInRoom().add(lighter);
 
 
     //ArrayList<Item> test = new ArrayList<>();
@@ -112,7 +122,6 @@ public class Map {
 
     //room7
     room7.setNorth(room4);
-
     room7.setEast(room8);
 
     //room 8
@@ -140,7 +149,7 @@ public class Map {
             System.out.println("Denied, you may not enter");
           } else {
             currentRoom = currentRoom.getEast();
-            System.out.println(currentRoom.getDescription());
+            System.out.println(currentRoom + " | " + currentRoom.getDescription());
           }
         }
         case "go north" -> {
@@ -148,7 +157,7 @@ public class Map {
             System.out.println("Denied, you may not enter");
           } else {
             currentRoom = currentRoom.getNorth();
-            System.out.println(currentRoom.getDescription());
+            System.out.println(currentRoom + " | " + currentRoom.getDescription());
           }
         }
         case "go west" -> {
@@ -156,7 +165,7 @@ public class Map {
             System.out.println("Denied, you may not enter");
           } else {
             currentRoom = currentRoom.getWest();
-            System.out.println(currentRoom.getDescription());
+            System.out.println(currentRoom + " | " + currentRoom.getDescription());
           }
         }
         case "go south" -> {
@@ -164,15 +173,23 @@ public class Map {
             System.out.println("Denied, you may not enter");
           } else {
             currentRoom = currentRoom.getSouth();
-            System.out.println(currentRoom.getDescription());
+            System.out.println(currentRoom + " | " + currentRoom.getDescription());
           }
         }
         // Indications of what Look does
         case "look" -> {
           System.out.println("You are in: " + currentRoom);
-          System.out.println(currentRoom.getDescription());
-          //System.out.println(currentRoom.getItems();)
+          System.out.println(currentRoom.getDescription() + " | ITEMS AVAILABLE | " +
+              currentRoom.getItemsInRoom());
+
+
         }
+
+        case "inventory" -> {
+          System.out.println(p.getPlayerInventory());
+
+        }
+
         case "help" -> {
           ui.helpMenu();
         }
@@ -184,5 +201,38 @@ public class Map {
     }
   }
 
+  //drop = skrift mellem remove og add
+  public void grabORdrop() {
+    System.out.println("You wanna grab or drop a item?");
+    Scanner gOd = new Scanner(System.in);
+    String input = gOd.nextLine();
+
+    switch (input) {
+      case "grab" -> {
+        if (currentRoom.getItemsInRoom().size() > 0) {
+          if (currentRoom.getItemsInRoom().size() == 1) {
+            p.addItemPlayerInventory(currentRoom.getItemsInRoom().get(0));// currentRoom.getItems().get(0) = det spurgte efter item
+            currentRoom.getItemsInRoom().remove(currentRoom.getItemsInRoom().get(0));
+            //
+          } else {
+            System.out.println("Which item would like to grab?");
+            String grabInput = gOd.nextLine();
+            for (int i = 0; i < currentRoom.getItemsInRoom().size(); i++) {
+              // Før forloop indeks starter med 0 + Under: condition = arraylist + Efter forloop: den plusser for hver gang
+              if (grabInput == currentRoom.getItemsInRoom().get(i).getName())
+                p.addItemPlayerInventory(currentRoom.getItemsInRoom().get(i));
+              currentRoom.getItemsInRoom().remove(currentRoom.getItemsInRoom().get(i));
+              // hvis grab = navn på item, så adder den til playerInventory
+
+            }
+          }
+        }
+
+      }
+    }
+  }
 }
+
+
+
 

@@ -1,7 +1,18 @@
 package com.company;
 
+
+import java.util.Scanner;
+
 public class UserInterface {
 
+  private Player player;
+
+  public Player getPlayer(){
+    return player;
+  }
+
+
+  // Fancy text method
   public String soutPrinter(String text) throws InterruptedException {
 
     for (int i = 0; i <= text.length() - 1; i++) {
@@ -12,21 +23,49 @@ public class UserInterface {
     return text;
   }
 
+
+  public String createPlayer(){
+    Scanner playerName = new Scanner(System.in);
+    System.out.println("Enter a player name:");
+    this.player = new Player(playerName.nextLine());
+    System.out.println("Your chosen player name is "+ player.getName());
+    return player.getName();
+  }
+
   public void Introduction() throws InterruptedException {
     soutPrinter("Welcome to the house of horrors, where many obstacles awaits");
-    System.out.println("Write help to open menu");
+    createPlayer();
+    System.out.println("""
+        —————————————————————————————————————————————————————————
+        You can move around by the use of Go commands such as: 
+        
+        Directions:\n\"Go north\"\n\"Go south\"\n\"Go east\"\n\"Go west\"
+        To receive further help, write 'help' to open menu
+        —————————————————————————————————————————————————————————""");
   }
 
   public void helpMenu() {
-    System.out.println("Help Menu:");
-    System.out.println("Directions:\n\"Go north\"\n\"Go south\"\n\"Go east\"\n\"Go west\"");
-    System.out.println("Look: to get the current description of your current room");
-    System.out.println("Exit: to Quit game");
+    System.out.println("\"Help\" | Menu:");
+    System.out.println("\"Look\" | Get the description of your current room");
+    System.out.println("\"Exit\" | Quit game");
     System.out.println("\"Take\" | Pick up an item you find");
     System.out.println("\"Drop\" | Get rid of an item from your inventory");
     System.out.println("\"Inventory\" | View your bag of things");
 
   }
 
+  public void takeItem(){
 
-}
+
+
+
+
+  }
+
+  }
+
+
+
+
+
+

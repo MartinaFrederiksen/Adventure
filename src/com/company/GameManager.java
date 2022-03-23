@@ -7,6 +7,7 @@ public class GameManager {
   public void execute() throws InterruptedException {
     ui.Introduction();
     m.mapOfRooms();
+    m.placeItems();
     m.goDirections();
   }
 }

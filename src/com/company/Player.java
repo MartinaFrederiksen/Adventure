@@ -1,19 +1,37 @@
 package com.company;
 
+import java.util.ArrayList;
+
 public class Player {
   private Room currentRoom;
-  private String PlayerName;
+  private String playerName;
+  private ArrayList<Item> playerInventory = new ArrayList<>();
 
-  public Player(String name) {
-    PlayerName = name;
+
+  public ArrayList<Item> getPlayerInventory(){
+    return playerInventory;
   }
 
+  //Add item too player inventory
+  // Den adder item af typen item
+  public void addItemPlayerInventory(Item item){playerInventory.add(item);}
+
+  // Remove item too player inventory
+  // Den remover item af typen item
+  public void removeItemPlayerInventory(Item item){playerInventory.remove(item);}
+
+
+  public Player(String name) {
+    playerName = name;
+  }
+  public Player(){}
+
   public String getName() {
-    return PlayerName;
+    return playerName;
   }
 
   public void setName(String name) {
-    this.PlayerName = name;
+    this.playerName = name;
   }
 
   public void setCurrentRoom(Room currentRoom) {
