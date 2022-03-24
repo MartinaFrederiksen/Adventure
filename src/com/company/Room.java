@@ -21,7 +21,7 @@ public class Room {
 
 
 
-      //Getters
+      // get methods
       public Room getNorth() {
             return North;
       }
@@ -43,9 +43,7 @@ public class Room {
       }
 
 
-      //Setters
-
-
+      //set methods
       public void setNorth (Room North){
             this.North = North;
       }
