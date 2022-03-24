@@ -53,16 +53,8 @@ public class UserInterface {
     System.out.println("\"Inventory\" | View your bag of things");
 
   }
-
-  public void takeItem(){
-
-
-
-
-
   }
 
-  }
 
 
 

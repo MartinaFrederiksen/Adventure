@@ -139,10 +139,8 @@ public class Map {
     System.out.println("You are now in " + currentRoom);
     boolean running = true;
     while (running) {
-
-      // Plaver Input
+// Plaver Input
       String playerIn = sc.nextLine();
-
       switch (playerIn) {
         case "go east" -> {
           if (currentRoom.getEast() == null) {
@@ -179,17 +177,22 @@ public class Map {
         // Indications of what Look does
         case "look" -> {
           System.out.println("You are in: " + currentRoom);
-          System.out.println(currentRoom.getDescription() + " | ITEMS AVAILABLE | " +
-              currentRoom.getItemsInRoom());
-
-
+          System.out.println(currentRoom.getDescription() + " | ITEMS AVAILABLE | " + currentRoom.getItemsInRoom());
+          System.out.println( "Would you like to grab or drop an item? ");
         }
-
+        case "grab" -> {
+          System.out.println( " Which item would you like to grab?");
+          String gr = sc.nextLine();
+          p.grabItem(gr);
+        }
+        case "drop" -> {
+          System.out.println("Which item would you like to drop?");
+          String dr = sc.nextLine();
+          p.dropItem(dr);
+        }
         case "inventory" -> {
-          System.out.println(p.getPlayerInventory());
-
+          System.out.println(p.getPlayerBag());
         }
-
         case "help" -> {
           ui.helpMenu();
         }
@@ -200,38 +203,49 @@ public class Map {
       }
     }
   }
-
-  //drop = skrift mellem remove og add
-  public void grabORdrop() {
-    System.out.println("You wanna grab or drop a item?");
-    Scanner gOd = new Scanner(System.in);
-    String input = gOd.nextLine();
-
-    switch (input) {
-      case "grab" -> {
-        if (currentRoom.getItemsInRoom().size() > 0) {
-          if (currentRoom.getItemsInRoom().size() == 1) {
-            p.addItemPlayerInventory(currentRoom.getItemsInRoom().get(0));// currentRoom.getItems().get(0) = det spurgte efter item
-            currentRoom.getItemsInRoom().remove(currentRoom.getItemsInRoom().get(0));
-            //
-          } else {
-            System.out.println("Which item would like to grab?");
-            String grabInput = gOd.nextLine();
-            for (int i = 0; i < currentRoom.getItemsInRoom().size(); i++) {
-              // Før forloop indeks starter med 0 + Under: condition = arraylist + Efter forloop: den plusser for hver gang
-              if (grabInput == currentRoom.getItemsInRoom().get(i).getName())
-                p.addItemPlayerInventory(currentRoom.getItemsInRoom().get(i));
-              currentRoom.getItemsInRoom().remove(currentRoom.getItemsInRoom().get(i));
-              // hvis grab = navn på item, så adder den til playerInventory
-
-            }
-          }
-        }
-
-      }
-    }
-  }
 }
+
+
+//drop = skrift mellem remove og add
+
+// public void grabORdrop() { // hvorfor spørger bliver ved at stille spørgsmålet selv hvis ikke der er item i rooms?
+//System.out.println("You wanna grab or drop a item?");
+//Scanner gOd = new Scanner(System.in);
+//System.out.println("Which item would you like to grab?");
+//String input = gOd.nextLine();
+//switch (input) {
+//case "grab" -> { // er det ikke mindre for lie står der større end ?
+// if (currentRoom.getItemsInRoom().size() > 0) { // Den er lidt spurgt fordi hvis det er større end 8 så er det lige meget om der er flere eller ej, player skal vælge
+//     if (currentRoom.getItemsInRoom().size() == 1) {
+//     p.addItemPlayerInventory(currentRoom.getItemsInRoom().get(0));// get(0) = det spurgte efterspurgte item
+//   currentRoom.getItemsInRoom().remove(currentRoom.getItemsInRoom().get(0));
+// giv den instrukser på hvad den sige
+// } else {
+// System.out.println("Which item would like to grab?");
+//String grabInput = gOd.nextLine();
+//for (int i = 0; i < currentRoom.getItemsInRoom().size(); i++)
+// {
+// Før forloop indeks starter med 0 + Under: condition = arraylist + Efter forloop: den plusser for hver gang
+// if (grabInput == currentRoom.getItemsInRoom().get(i).getName())
+// p.addItemPlayerInventory(currentRoom.getItemsInRoom().get(i));
+//currentRoom.getItemsInRoom().remove(currentRoom.getItemsInRoom().get(i));
+// hvis grab = navn på item, så adder den til playerInventory
+// }
+//}
+//} else {
+// System.out.println("No items found in the room");
+// }
+// }
+//case "drop" -> {
+// System.out.println("Which item would you like to drop");
+//String dropInput = gOd.nextLine();
+//for (int i = 0; i < p.getPlayerInventory().size(); i++) {
+// if (dropInput == p.getPlayerInventory().get(i).getName())
+// p.removeItemPlayerInventory(p.getPlayerInventory().get(i));
+//currentRoom.getItemsInRoom().add(p.getPlayerInventory().get(i));
+// }
+// }
+//case "regret" -> {}}}}
 
 
 

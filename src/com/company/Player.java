@@ -5,26 +5,53 @@ import java.util.ArrayList;
 public class Player {
   private Room currentRoom;
   private String playerName;
-  private ArrayList<Item> playerInventory = new ArrayList<>();
+  private ArrayList<Item> playerBag = new ArrayList<>();
 
 
-  public ArrayList<Item> getPlayerInventory(){
-    return playerInventory;
+  public Item findItem(String itemName) {
+    for (Item item : currentRoom.getItemsInRoom()) {
+      if (item.getName().equals(itemName)) {
+        return item;
+      }
+    }
+    return null;
   }
 
-  //Add item too player inventory
-  // Den adder item af typen item
-  public void addItemPlayerInventory(Item item){playerInventory.add(item);}
+  public void grabItem(String itemName) {
+    Item item = findItem(itemName);
+    if( item != null) {
+      addItemPlayerBag(item);
+      currentRoom.removeItemRoomInventory(item);
+    }
+  }
 
-  // Remove item too player inventory
-  // Den remover item af typen item
-  public void removeItemPlayerInventory(Item item){playerInventory.remove(item);}
+  public void dropItem(String itemName) {
+    Item item = findItem(itemName);
+    if(item != null) {
+      removeItemPlayerBag(item);
+      currentRoom.addItemRoomInventory(item);
+    }
+  }
+
+  public ArrayList<Item> getPlayerBag() {
+    return playerBag;
+  }
+
+  public void addItemPlayerBag(Item item) {
+    playerBag.add(item);
+  }
+
+  public void removeItemPlayerBag(Item item) {
+    playerBag.remove(item);
+  }
 
 
   public Player(String name) {
     playerName = name;
   }
-  public Player(){}
+
+  public Player() {
+  }
 
   public String getName() {
     return playerName;

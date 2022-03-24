@@ -37,6 +37,12 @@ public class Room {
     items.add(item);
   }
 
+  public void removeItemRoomInventory(Item item){
+    items.remove(item);
+  }
+  public void addItemRoomInventory(Item item){
+    items.add(item);
+  }
   //Remove item method
 
   //Delete item method
