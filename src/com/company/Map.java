@@ -35,19 +35,27 @@ public class Map {
 
   // Room descriptions using String --- add to the declaring of rooms (SKRIV FLERE DESKRIPTIONER)
   String room1() {
-    return "The room has bloody stains on the walls, what do you now?" + " Look for helpful items";
+    return "Welcome to Happy Smile Hospital the old sign says" +
+            "There are still journals, computers and books left" + "Look for helpful items";
+    //clues ???
   }
 
   String room2() {
-    return "The room is filled with snakes, where do you go from here?" + "Look for helpful items";
+    return "Looks like a bedroom" + " There is a madras" + "Old pair of shoes" +
+            "Is that a needle?" + "Look for helpful items";
   }
 
   String room3() {
-    return "The room is filling up with water, quickly make a move or suffer the consequences" + "Look for helpful item";
+    return "The walls are falling apart" + "The stairs dosen't look too good either" +
+            "Is that a man lying on the floor?" + "Look for helpful item";
+    //fjende: Mand som ligger der og råber efter dem, kan angribe bla bla bla idk?
   }
 
   String room4() {
-    return "torture room...be weary of your steps, there are booby trap all over";
+    return "Looks like this is were they ate" + "Am I the only one that can hear that?" +
+            "Is that.... Is that a dog?" + "Looks like there is a cabinet" + "I hope there is food inside"
+            + "But the dog sounds very aggressive Im scared";
+    //Læs dagbog? clue?: Kære dagbog. I dag skulle en af dem snakke med hende. Jeg så hende aldrig igen
   }
 
   String room5() {
@@ -55,19 +63,22 @@ public class Map {
   }
 
   String room6() {
-    return "...description pending...";
+    return "Looks like a bedroom" + "Why is the window closed off with planks?" + "The bed is also torn apart" +
+            "Same with the sheets" + "That looks like a journal";
   }
 
   String room7() {
-    return "...description pending...";
+    return "Looks like a bedroom" + "Windows are smashed and the curtains are torn apart" +
+            "Is that a hand print made out of blood?" + "Looks like a journal";
   }
 
   String room8() {
-    return "...description pending...";
+    return "This hallway is pretty long" + "I wonder what this leads too?" +
+            "Is that a door?";
   }
 
   String room9() {
-    return "...description pending...";
+    return "This looks like where the worker could relax" + "A frigde? Maybe there is food inside";
   }
 
   public void placeItems() { //Place the items in the different rooms
