@@ -144,7 +144,7 @@ public class Map {
       switch (playerIn) {
         case "go east" -> {
           if (currentRoom.getEast() == null) {
-            System.out.println("Denied, you may not enter");
+            System.out.println("You can't go that way");
           } else {
             currentRoom = currentRoom.getEast();
             System.out.println(currentRoom + " | " + currentRoom.getDescription());
@@ -152,7 +152,7 @@ public class Map {
         }
         case "go north" -> {
           if (currentRoom.getNorth() == null) {
-            System.out.println("Denied, you may not enter");
+            System.out.println("You can't go that way");
           } else {
             currentRoom = currentRoom.getNorth();
             System.out.println(currentRoom + " | " + currentRoom.getDescription());
@@ -160,7 +160,7 @@ public class Map {
         }
         case "go west" -> {
           if (currentRoom.getWest() == null) {
-            System.out.println("Denied, you may not enter");
+            System.out.println("You can't go that way");
           } else {
             currentRoom = currentRoom.getWest();
             System.out.println(currentRoom + " | " + currentRoom.getDescription());
@@ -168,7 +168,7 @@ public class Map {
         }
         case "go south" -> {
           if (currentRoom.getSouth() == null) {
-            System.out.println("Denied, you may not enter");
+            System.out.println("You can't go that way");
           } else {
             currentRoom = currentRoom.getSouth();
             System.out.println(currentRoom + " | " + currentRoom.getDescription());
