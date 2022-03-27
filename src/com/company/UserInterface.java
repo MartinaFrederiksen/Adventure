@@ -33,7 +33,8 @@ public class UserInterface {
   }
 
   public void Introduction() throws InterruptedException {
-    soutPrinter("Welcome to the house of horrors, where many obstacles awaits");
+    soutPrinter("You have arrived at an old abandoned mental constitution.");
+    soutPrinter("Soon you will realise everything is not what is seems like");
     createPlayer();
     System.out.println("""
         —————————————————————————————————————————————————————————
