@@ -35,50 +35,50 @@ public class Map {
 
   // Room descriptions using String --- add to the declaring of rooms (SKRIV FLERE DESKRIPTIONER)
   String room1() { //Reception
-    return "Welcome to Happy Smile Hospital the old sign says" +
-            "There are still journals, computers and books left" + "Look for helpful items";
+    return "\nWelcome to Happy Smile Hospital the old sign says" +
+            "" +
+        "\nThere are still journals, computers and books left" + "\nLook for helpful items";
     //clues ???
   }
 
   String room2() { //værelse
-    return "Looks like a bedroom" + " There is a madras" + "Old pair of shoes" +
-            "Is that a needle?" + "Look for helpful items";
+    return "\nLooks like a bedroom" + "\nThere is a madras..." + "\nOld pair of shoes?.." +
+            "\nIs that a needle?" + "\n...Look for helpful items...";
   }
 
   String room3() { //opgang/trappe?
-    return "The walls are falling apart" + "The stairs dosen't look too good either" +
-            "Is that a man lying on the floor?" + "Look for helpful item";
+    return "\nThe walls are falling apart" + "\nThe stairs dosen't look too good either" +
+            "\nIs that a man lying on the floor?" + "\n...Look for helpful items...";
     //fjende: Mand som ligger der og råber efter dem, kan angribe bla bla bla idk?
   }
 
   String room4() { //spisesal
-    return "Looks like this is were they ate" + "Am I the only one that can hear that?" +
-            "Is that.... Is that a dog?" + "Looks like there is a cabinet" + "I hope there is food inside"
-            + "But the dog sounds very aggressive Im scared";
-    //Læs dagbog? clue?: Kære dagbog. I dag skulle en af dem snakke med hende. Jeg så hende aldrig igen
+    return "\nLooks like this is were they ate" + "\nAm I the only one that can hear that?" +
+            "\nIs that.... Is that a dog?" + "\nLooks like there is a cabinet"
+            + "\n Quickly the dog is attacking you" + "\n...Look for helpful items...";
   }
 
   String room5() { //Kontor
-    return "congratulations - you have 10 second til every exit locks, hurry make a desicion before you are trapped for ever.";
+    return "\ncongratulations - you have 10 second til every exit locks \nHurry make a desicion before you are trapped for ever.";
   }
 
   String room6() { //værelse
-    return "Looks like a bedroom" + "Why is the window closed off with planks?" + "The bed is also torn apart" +
-            "Same with the sheets" + "That looks like a journal";
+    return "Looks like a bedroom" + "\nWhy is the window closed off with planks?" + "\nThe bed is also torn apart" +
+            "\nSame with the sheets..." + "...Look for helpful items..." ;
   }
 
   String room7() { //værelse
-    return "Looks like a bedroom" + "Windows are smashed and the curtains are torn apart" +
-            "Is that a hand print made out of blood?" + "Looks like a journal";
+    return "\nLooks like a bedroom" + "\nWindows are smashed and the curtains are torn apart" +
+            "\nIs that a hand print made out of blood?" + "\n A journal! Write open to read it";
   }
 
   String room8() { //gang
-    return "This hallway is pretty long" + "I wonder what this leads too?" +
-            "Is that a door?";
+    return "\nThis hallway is pretty long" + "\nI wonder what this leads too?" + "\nLooks like it leads to 3 different rooms";
   }
 
   String room9() { //medarbejder rum
-    return "This looks like where the worker could relax" + "A frigde? Maybe there is food inside";
+    return "Looks like a staff room" + "\nA cabinet? I hope there is some food inside" +
+        "\nHmmm... That looks like a key";
   }
 
   public void placeItems() { //Place the items in the different rooms
@@ -147,6 +147,7 @@ public class Map {
   }
 
   public void goDirections() {
+    p.setCurrentRoom(room1);
     System.out.println("You are now in " + currentRoom);
     boolean running = true;
     while (running) {
@@ -157,7 +158,7 @@ public class Map {
           if (currentRoom.getEast() == null) {
             System.out.println("You can't go that way");
           } else {
-            currentRoom = currentRoom.getEast();
+            p.setCurrentRoom(currentRoom.getEast());
             System.out.println(currentRoom + " | " + currentRoom.getDescription());
           }
         }
@@ -165,7 +166,7 @@ public class Map {
           if (currentRoom.getNorth() == null) {
             System.out.println("You can't go that way");
           } else {
-            currentRoom = currentRoom.getNorth();
+            p.setCurrentRoom(currentRoom.getNorth());
             System.out.println(currentRoom + " | " + currentRoom.getDescription());
           }
         }
@@ -173,7 +174,7 @@ public class Map {
           if (currentRoom.getWest() == null) {
             System.out.println("You can't go that way");
           } else {
-            currentRoom = currentRoom.getWest();
+            p.setCurrentRoom(currentRoom.getWest());
             System.out.println(currentRoom + " | " + currentRoom.getDescription());
           }
         }
@@ -181,7 +182,7 @@ public class Map {
           if (currentRoom.getSouth() == null) {
             System.out.println("You can't go that way");
           } else {
-            currentRoom = currentRoom.getSouth();
+            p.setCurrentRoom(currentRoom.getSouth());
             System.out.println(currentRoom + " | " + currentRoom.getDescription());
           }
         }
