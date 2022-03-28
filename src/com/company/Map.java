@@ -9,7 +9,7 @@ public class Map {
 
   // Declare variables
   Scanner sc = new Scanner(System.in);
-  private Room currentRoom;
+
 
   Item knife = new Item("Knife", "Careful the knife is very sharp");
   Item sword = new Item("Sword", "congratulations you found the sword of warriors");
@@ -104,7 +104,7 @@ public class Map {
     // Room 1 el. currentRoom
     // currentRoom is all of the rooms.
 
-    currentRoom = room1;
+    p.setCurrentRoom(room1);
 
     room1.setSouth(room4);
     room1.setEast(room2);
@@ -147,49 +147,48 @@ public class Map {
   }
 
   public void goDirections() {
-    p.setCurrentRoom(room1);
-    System.out.println("You are now in " + currentRoom);
+    System.out.println("You are now in " + p.getCurrentRoom());
     boolean running = true;
     while (running) {
 // Plaver Input
       String playerIn = sc.nextLine();
       switch (playerIn) {
         case "go east" -> {
-          if (currentRoom.getEast() == null) {
+          if (p.getCurrentRoom().getEast() == null) {
             System.out.println("You can't go that way");
           } else {
-            p.setCurrentRoom(currentRoom.getEast());
-            System.out.println(currentRoom + " | " + currentRoom.getDescription());
+            p.setCurrentRoom(p.getCurrentRoom().getEast());
+            System.out.println(p.getCurrentRoom() + " | " + p.getCurrentRoom().getDescription());
           }
         }
         case "go north" -> {
-          if (currentRoom.getNorth() == null) {
+          if (p.getCurrentRoom().getNorth() == null) {
             System.out.println("You can't go that way");
           } else {
-            p.setCurrentRoom(currentRoom.getNorth());
-            System.out.println(currentRoom + " | " + currentRoom.getDescription());
+            p.setCurrentRoom(p.getCurrentRoom().getNorth());
+            System.out.println(p.getCurrentRoom() + " | " + p.getCurrentRoom().getDescription());
           }
         }
         case "go west" -> {
-          if (currentRoom.getWest() == null) {
+          if (p.getCurrentRoom().getWest() == null) {
             System.out.println("You can't go that way");
           } else {
-            p.setCurrentRoom(currentRoom.getWest());
-            System.out.println(currentRoom + " | " + currentRoom.getDescription());
+            p.setCurrentRoom(p.getCurrentRoom().getWest());
+            System.out.println(p.getCurrentRoom()+ " | " + p.getCurrentRoom().getDescription());
           }
         }
         case "go south" -> {
-          if (currentRoom.getSouth() == null) {
+          if (p.getCurrentRoom().getSouth() == null) {
             System.out.println("You can't go that way");
           } else {
-            p.setCurrentRoom(currentRoom.getSouth());
-            System.out.println(currentRoom + " | " + currentRoom.getDescription());
+            p.setCurrentRoom(p.getCurrentRoom().getSouth());
+            System.out.println(p.getCurrentRoom() + " | " + p.getCurrentRoom().getDescription());
           }
         }
         // Indications of what Look does
         case "look" -> {
-          System.out.println("You are in: " + currentRoom);
-          System.out.println(currentRoom.getDescription() + " | ITEMS AVAILABLE | " + currentRoom.getItemsInRoom());
+          System.out.println("You are in: " + p.getCurrentRoom());
+          System.out.println(p.getCurrentRoom().getDescription() + " | ITEMS AVAILABLE | " + p.getCurrentRoom().getItemsInRoom());
           System.out.println( "Would you like to grab or drop an item? ");
         }
         case "grab" -> {
