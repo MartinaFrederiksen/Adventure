@@ -34,50 +34,50 @@ public class Map {
 
 
   // Room descriptions using String --- add to the declaring of rooms (SKRIV FLERE DESKRIPTIONER)
-  String room1() {
+  String room1() { //Reception
     return "Welcome to Happy Smile Hospital the old sign says" +
             "There are still journals, computers and books left" + "Look for helpful items";
     //clues ???
   }
 
-  String room2() {
+  String room2() { //værelse
     return "Looks like a bedroom" + " There is a madras" + "Old pair of shoes" +
             "Is that a needle?" + "Look for helpful items";
   }
 
-  String room3() {
+  String room3() { //opgang/trappe?
     return "The walls are falling apart" + "The stairs dosen't look too good either" +
             "Is that a man lying on the floor?" + "Look for helpful item";
     //fjende: Mand som ligger der og råber efter dem, kan angribe bla bla bla idk?
   }
 
-  String room4() {
+  String room4() { //spisesal
     return "Looks like this is were they ate" + "Am I the only one that can hear that?" +
             "Is that.... Is that a dog?" + "Looks like there is a cabinet" + "I hope there is food inside"
             + "But the dog sounds very aggressive Im scared";
     //Læs dagbog? clue?: Kære dagbog. I dag skulle en af dem snakke med hende. Jeg så hende aldrig igen
   }
 
-  String room5() {
+  String room5() { //Kontor
     return "congratulations - you have 10 second til every exit locks, hurry make a desicion before you are trapped for ever.";
   }
 
-  String room6() {
+  String room6() { //værelse
     return "Looks like a bedroom" + "Why is the window closed off with planks?" + "The bed is also torn apart" +
             "Same with the sheets" + "That looks like a journal";
   }
 
-  String room7() {
+  String room7() { //værelse
     return "Looks like a bedroom" + "Windows are smashed and the curtains are torn apart" +
             "Is that a hand print made out of blood?" + "Looks like a journal";
   }
 
-  String room8() {
+  String room8() { //gang
     return "This hallway is pretty long" + "I wonder what this leads too?" +
             "Is that a door?";
   }
 
-  String room9() {
+  String room9() { //medarbejder rum
     return "This looks like where the worker could relax" + "A frigde? Maybe there is food inside";
   }
 
