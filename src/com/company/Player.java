@@ -5,20 +5,32 @@ import java.util.ArrayList;
 public class Player {
   private Room currentRoom;
   private String playerName;
-  private int healthStatus = 100;
+  private int healthP = 100;
   private ArrayList<Item> playerBag = new ArrayList<>();
 
 // HEALTH
-  public int getHealthStatus(){
-    return healthStatus;
+  public int getHealthP(){
+    return healthP;
   }
 
-  public void setHealthStatus(int healthStatus) {
-    this.healthStatus = healthStatus;
+  public void setHealthP(int healthP) {
+    this.healthP = healthP;
   }
 
   public void updateHealthStatus(int healthStatus){
-    this.healthStatus += healthStatus;
+    this.healthP += healthStatus;
+  }
+  public void checkHealthStat(){
+    int currentHealth = getHealthP();
+    if (currentHealth <= 100 && currentHealth >= 75) {
+      System.out.println(currentHealth + " - You're in good shape!");
+    } else if (currentHealth < 75 && currentHealth >= 50) {
+      System.out.println(currentHealth + " - You're in okay shape");
+    } else if (currentHealth < 50 && currentHealth >= 25) {
+      System.out.println(currentHealth + " - You're getting weak");
+    } else if (currentHealth < 25 && currentHealth >= 1) {
+      System.out.println(currentHealth + " - You're in health danger!");
+    }
   }
 
 // FOOD METODER
@@ -30,7 +42,6 @@ public class Player {
   }
   // Opdaterer health status
   // Siden tingene bliver automatisk bliver tilføjet til begge inventory, fjernes de nu.
-
 
 
 
@@ -49,6 +60,7 @@ public class Player {
     if( item != null) {
       addItemPlayerBag(item);
       currentRoom.removeItemRoomInventory(item);
+      System.out.println("The item has been picked up");
     }
   }
 
@@ -57,6 +69,7 @@ public class Player {
     if (item != null) {
       removeItemPlayerBag(item);
       currentRoom.addItemRoomInventory(item);
+      System.out.println("The item has been dropped");
     }
   }
 
