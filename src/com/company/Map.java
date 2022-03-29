@@ -41,12 +41,12 @@ public class Map {
     //clues ???
   }
 
-  String room2() { //værelse
+  String room2() { //Værelse
     return "\nLooks like a bedroom" + "\nThere is a madras..." + "\nOld pair of shoes?.." +
             "\nIs that a needle?" + "\n...Look for helpful items...";
   }
 
-  String room3() { //opgang/trappe?
+  String room3() { //Opgang/trappe?
     return "\nThe walls are falling apart" + "\nThe stairs dosen't look too good either" +
             "\nIs that a man lying on the floor?" + "\n...Look for helpful items...";
     //fjende: Mand som ligger der og råber efter dem, kan angribe bla bla bla idk?
@@ -54,8 +54,7 @@ public class Map {
 
   String room4() { //spisesal
     return "\nLooks like this is were they ate" + "\nAm I the only one that can hear that?" +
-            "\nIs that.... Is that a dog?" + "\nLooks like there is a cabinet"
-            + "\n Quickly the dog is attacking you" + "\n...Look for helpful items...";
+            "\nIs that.... Is that a dog?" + "\nQuickly the dog is attacking you" + "\n...Look for helpful items...";
   }
 
   String room5() { //Kontor
@@ -69,7 +68,7 @@ public class Map {
 
   String room7() { //værelse
     return "\nLooks like a bedroom" + "\nWindows are smashed and the curtains are torn apart" +
-            "\nIs that a hand print made out of blood?" + "\n A journal! Write open to read it";
+            "\nIs that a hand print made out of blood?" + "\nA journal! Write open to read it";
   }
 
   String room8() { //gang
