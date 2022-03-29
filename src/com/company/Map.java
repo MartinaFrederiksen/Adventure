@@ -11,12 +11,12 @@ public class Map {
   Scanner sc = new Scanner(System.in);
 
 
-  Item knife = new Item("Knife", "Careful the knife is very sharp");
-  Item sword = new Item("Sword", "congratulations you found the sword of warriors");
-  Item lighter = new Item("Lighter", "grey lighter");
-  Item rope = new Item("Rope", "10m long rope");
-  Item auqaElix = new Item("Auqa Elixer", "Drink this and you can breathe under water");
-  Item bomb = new Item("bomb", " throw it and it says boom");
+  Item knife = new Item("Knife", "A very sharp knife");
+  Item needle = new Item("Needle", "A needle that contains some kind of liquid");
+  Item flashlight = new Item("Flashlight", "A flashlight with batteries in");
+  Item gun = new Item("Gun", "A gun with bullets in");
+  Item key = new Item("Key", "A mysterious key");
+  Item firstaidkit = new Item("First aid kit", "A first aid kit if you get wounded");
   Item Healing = new Item("Heling Potion", "...description pending... ");
   Item LockPicker = new Item("LockPicker", " ...description pending...");
   Item axe = new Item("axe", "description pending");
@@ -31,6 +31,7 @@ public class Map {
   Room room7 = new Room("Room 7", room7());
   Room room8 = new Room("Room 8", room8());
   Room room9 = new Room("Room 9", room9());
+
 
 
   // Room descriptions using String --- add to the declaring of rooms (SKRIV FLERE DESKRIPTIONER)
@@ -82,14 +83,14 @@ public class Map {
 
   public void placeItems() { //Place the items in the different rooms
     room1.getItemsInRoom().add(knife);
-    room2.getItemsInRoom().add(rope);
-    room3.getItemsInRoom().add(auqaElix);
-    room4.getItemsInRoom().add(sword);
-    room5.getItemsInRoom().add(bomb);
+    room2.getItemsInRoom().add(gun);
+    room3.getItemsInRoom().add(key);
+    room4.getItemsInRoom().add(needle);
+    room5.getItemsInRoom().add(firstaidkit);
     room6.getItemsInRoom().add(Healing);
     room7.getItemsInRoom().add(LockPicker);
     room8.getItemsInRoom().add(axe);
-    room9.getItemsInRoom().add(lighter);
+    room9.getItemsInRoom().add(flashlight);
 
 
     //ArrayList<Item> test = new ArrayList<>();
