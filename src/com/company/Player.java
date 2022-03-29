@@ -73,19 +73,21 @@ public class Player {
     }
   }
 
-  public void eatFood(String itemName) {
+  public Availability eatFood(String itemName) {
     // See if item is in the room
     Item item = findItem(itemName);
     if (item == null) {
       item = findItem(itemName);
       if (item == null) ;
+      return Availability.Not_available;
     } else {
       if (item != null) {
         //add til mave
         eat((Food) item);
         System.out.println("you have eaten" + item);
-      } 
+      }
     }
+    return null;
   }
 // ARRAYLIST
 

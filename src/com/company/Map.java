@@ -12,6 +12,7 @@ public class Map {
 
 
   Item knife = new Item("Knife", "A very sharp knife");
+  Item banana = new Item("Banan", "Fresh and ripe banana");
   Item needle = new Item("Needle", "A needle that contains some kind of liquid");
   Item flashlight = new Item("Flashlight", "A flashlight with batteries in");
   Item gun = new Item("Gun", "A gun with bullets in");
