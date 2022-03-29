@@ -5,9 +5,36 @@ import java.util.ArrayList;
 public class Player {
   private Room currentRoom;
   private String playerName;
+  private int healthStatus = 100;
   private ArrayList<Item> playerBag = new ArrayList<>();
 
+// HEALTH
+  public int getHealthStatus(){
+    return healthStatus;
+  }
 
+  public void setHealthStatus(int healthStatus) {
+    this.healthStatus = healthStatus;
+  }
+
+  public void updateHealthStatus(int healthStatus){
+    this.healthStatus += healthStatus;
+  }
+
+// FOOD METODER
+
+  public void eat (Food food){
+   updateHealthStatus(food.getHealthP());
+   currentRoom.removeItemRoomInventory(food);
+   removeItemPlayerBag(food);
+  }
+  // Opdaterer health status
+  // Siden tingene bliver automatisk bliver tilføjet til begge inventory, fjernes de nu.
+
+
+
+
+// SWITCH METODERNE
   public Item findItem(String itemName) {
     for (Item item : currentRoom.getItemsInRoom()) {
       if (item.getName().equals(itemName)) {
@@ -27,11 +54,27 @@ public class Player {
 
   public void dropItem(String itemName) {
     Item item = findItem(itemName);
-    if(item != null) {
+    if (item != null) {
       removeItemPlayerBag(item);
       currentRoom.addItemRoomInventory(item);
     }
   }
+
+  public void eatFood(String itemName) {
+    // See if item is in the room
+    Item item = findItem(itemName);
+    if (item == null) {
+      item = findItem(itemName);
+      if (item == null) ;
+    } else {
+      if (item != null) {
+        //add til mave
+        eat((Food) item);
+        System.out.println("you have eaten" + item);
+      } 
+    }
+  }
+// ARRAYLIST
 
   public ArrayList<Item> getPlayerBag() {
     return playerBag;
@@ -44,6 +87,9 @@ public class Player {
   public void removeItemPlayerBag(Item item) {
     playerBag.remove(item);
   }
+
+
+
 
 
   public Player(String name) {

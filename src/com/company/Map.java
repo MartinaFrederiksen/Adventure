@@ -80,22 +80,22 @@ public class Map {
         "\nHmmm... That looks like a key";
   }
 
-  public void placeItems() { //Place the items in the different rooms
+  public void placeItems() { //Place the items, food & clues in the different rooms
     room1.getItemsInRoom().add(knife);
     room2.getItemsInRoom().add(rope);
+    room2.addItem(new Food("waterbottle","Drink it or save it", 80));
     room3.getItemsInRoom().add(auqaElix);
     room4.getItemsInRoom().add(sword);
     room5.getItemsInRoom().add(bomb);
     room6.getItemsInRoom().add(Healing);
     room7.getItemsInRoom().add(LockPicker);
     room8.getItemsInRoom().add(axe);
+    room8.addItem(new Food("apple", "red apple", 20));
     room9.getItemsInRoom().add(lighter);
-
-
-    //ArrayList<Item> test = new ArrayList<>();
-    //test.add(knife);
+    room9.addItem(new Food("cookie", "roden cookie", 20));
 
   }
+
 
 
   public void mapOfRooms() {
@@ -188,7 +188,7 @@ public class Map {
         case "look" -> {
           System.out.println("You are in: " + p.getCurrentRoom());
           System.out.println(p.getCurrentRoom().getDescription() + " | ITEMS AVAILABLE | " + p.getCurrentRoom().getItemsInRoom());
-          System.out.println( "Would you like to grab or drop an item? ");
+          System.out.println( "Would you like to grab, drop or eat an item? ");
         }
         case "grab" -> {
           System.out.println( " Which item would you like to grab?");
@@ -200,6 +200,12 @@ public class Map {
           String dr = sc.nextLine();
           p.dropItem(dr);
         }
+        case "eat" -> {
+          System.out.println("Which item would you like to eat?");
+          String eat = sc.nextLine();
+          p.eatFood(eat);
+          }
+
         case "inventory" -> {
           System.out.println(p.getPlayerBag());
         }
