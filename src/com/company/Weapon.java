@@ -15,6 +15,10 @@ public  abstract class Weapon extends Item {
     return damage;
   }
 
+  public abstract int availableUsesLeft();
+
+  public abstract void setAvailableUsesSpent();
+
   public String toString() {
     return this.getName();
   }

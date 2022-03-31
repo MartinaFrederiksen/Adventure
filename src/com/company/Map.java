@@ -11,16 +11,17 @@ public class Map {
   Scanner sc = new Scanner(System.in);
 
 
-  Item knife = new Item("Knife", "A very sharp knife");
-  Item banana = new Item("Banan", "Fresh and ripe banana");
-  Item needle = new Item("Needle", "A needle that contains some kind of liquid");
+  Item needle = new Item("Needle", "A needle that contains liquid, that makes you immune to puss poison");
   Item flashlight = new Item("Flashlight", "A flashlight with batteries in");
-  Item gun = new Item("Gun", "A gun with bullets in");
   Item key = new Item("Key", "A mysterious key");
   Item firstaidkit = new Item("First aid kit", "A first aid kit if you get wounded");
   Item Healing = new Item("Heling Potion", "...description pending... ");
   Item LockPicker = new Item("LockPicker", " ...description pending...");
-  Item axe = new Item("axe", "description pending");
+
+  // Enemy Weapons
+  MeleeWeapon knifeEnemy = new MeleeWeapon("knife", "It's very sharp!", -20);
+  MeleeWeapon pussPoison = new MeleeWeapon("puss poison", "", -50);
+
 
   // Declare rooms = room number + room descriptions
   Room room1 = new Room("Room 1", room1());
@@ -32,6 +33,7 @@ public class Map {
   Room room7 = new Room("Room 7", room7());
   Room room8 = new Room("Room 8", room8());
   Room room9 = new Room("Room 9", room9());
+
 
 
 
@@ -83,18 +85,24 @@ public class Map {
   }
 
   public void placeItems() { //Place the items in the different rooms
-    room1.getItemsInRoom().add(knife);
-    room2.getItemsInRoom().add(gun);
+    room1.addItem(new Food("banana", "Fresh and ripe banana",20));
+    room1.addItem(new MeleeWeapon("knife", "look a knife!", -20));
+    room2.addItem(new RangedWeapon("gun", "9mm Glock", -50));
     room2.addItem(new Food ("waterbottle", "", 80));
     room3.getItemsInRoom().add(key);
+    room2.addItem(new RangedWeapon("rifle", "brown rifle", -70));
     room4.getItemsInRoom().add(needle);
     room5.getItemsInRoom().add(firstaidkit);
     room6.getItemsInRoom().add(Healing);
     room6.addItem(new Food("bluepill", "Try your luck...",-20));
     room7.getItemsInRoom().add(LockPicker);
-    room8.getItemsInRoom().add(axe);
+    room8.addItem(new MeleeWeapon("axe", "look a axe!", -40));
     room9.getItemsInRoom().add(flashlight);
     room9.addItem(new Food ("apple","half eaten apple", 20) );
+    room3.addEnemy(new Enemy("Zombie","old man with no teeth and hollow eyes", 70, knifeEnemy));
+    room4.addEnemy(new Enemy("Dog","zombie dog with white puss coming out of its mouth", 70,pussPoison));
+
+
   }
 
 
@@ -208,8 +216,13 @@ public class Map {
         case "health" -> {
           p.checkHealthStat();
         }
-        case "read" -> {
-          //metode som læser clues
+        case "equip" -> {
+          System.out.println("which weapons would you like to equip?");
+          String eq = sc.nextLine();
+          p.equipWeapons(eq);
+        }
+        case "attack" -> {
+
         }
         case "inventory" -> {
           System.out.println(p.getPlayerBag());

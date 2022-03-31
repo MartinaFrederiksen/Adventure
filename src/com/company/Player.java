@@ -7,6 +7,7 @@ public class Player {
   private String playerName;
   private int healthP = 100;
   private ArrayList<Item> playerBag = new ArrayList<>();
+  private ArrayList<Item> equippedWeapons = new ArrayList<>();
 
 // HEALTH
   public int getHealthP(){
@@ -44,8 +45,27 @@ public class Player {
   // Siden tingene bliver automatisk bliver tilføjet til begge inventory, fjernes de nu.
 
 
+// EQUIP
+public Weapon equipW(Weapon weapon) {
+
+  boolean isEmpty = equippedWeapons.isEmpty();
+
+  if (isEmpty) {
+    playerBag.remove(weapon);
+    equippedWeapons.add(weapon);
+    return weapon;
+  } else {
+    playerBag.add(equippedWeapons.get(0));
+    equippedWeapons.clear();
+    equippedWeapons.add(weapon);
+    playerBag.remove(weapon);
+    return weapon;
+  }
+}
+
 
 // SWITCH METODERNE
+
   public Item findItem(String itemName) {
     for (Item item : currentRoom.getItemsInRoom()) {
       if (item.getName().equals(itemName)) {
@@ -89,10 +109,40 @@ public class Player {
     }
     return null;
   }
+
+  public Availability equipWeapons (String itemName){
+
+    Item item = findItem(itemName);
+    if (item == null) {
+      item = findItem(itemName);
+      if (item == null) ;
+      return Availability.Not_available;
+    } else {
+      if (item != null) {
+        //add til mave
+        equipW((Weapon) item);
+        System.out.println("you have equipped " + item);
+      }
+    }
+    return null;
+  }
+
+  public String attackMet(String enemyName) {
+    //if (!equippedWeapons.isEmpty()) {
+     // ((Weapon) getEquippedWeapons().get(0)).setAvailableUsesSpent();
+
+    return null;
+  }
+
+
 // ARRAYLIST
 
   public ArrayList<Item> getPlayerBag() {
     return playerBag;
+  }
+
+  public ArrayList<Item> getEquippedWeapons() {
+    return equippedWeapons;
   }
 
   public void addItemPlayerBag(Item item) {
@@ -129,7 +179,12 @@ public class Player {
   public Room getCurrentRoom() {
     return currentRoom;
   }
-
+  public void gameover() {
+    System.out.println("Sorry "+playerName + " you are dead!") ;
+    System.out.println("GAME OVER!");
+    System.exit(0);
+    return;
+  }
   // Lav player position metode
   // Lav player move metode, så player kan bevæge sig rundt
   // Lav

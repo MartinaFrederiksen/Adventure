@@ -51,7 +51,12 @@ public class UserInterface {
     System.out.println("\"Exit\" | Quit game");
     System.out.println("\"Take\" | Pick up an item you find");
     System.out.println("\"Drop\" | Get rid of an item from your inventory");
+    System.out.println("\"Eat\"  | Eat/drink something");
+    System.out.println("\"Equip\"| Equip weapons");
+    System.out.println("\"Health\" | View health percentage");
+    System.out.println("\"Attack\" | Attack enemies");
     System.out.println("\"Inventory\" | View your bag of things");
+
 
   }
 
