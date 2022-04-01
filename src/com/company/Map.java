@@ -196,7 +196,13 @@ public class Map {
         case "look" -> {
           System.out.println("You are in: " + p.getCurrentRoom());
           System.out.println(p.getCurrentRoom().getDescription() + " | ITEMS AVAILABLE | " + p.getCurrentRoom().getItemsInRoom());
-          System.out.println( "Would you like to grab, drop or eat an item? ");
+          StringBuilder sbEnemy = new StringBuilder();
+          for (Enemy enemy : p.getCurrentRoom().getEnemies()){
+            String enemyName= (enemy) + ": " + enemy.getDescription() + "\n";
+            sbEnemy.append(enemyName);
+          }
+          System.out.println(sbEnemy);
+          System.out.println( "Would you like to equip grab, drop or eat an weapon/item/food? ");
         }
         case "grab" -> {
           System.out.println( " Which item would you like to grab?");
@@ -222,10 +228,15 @@ public class Map {
           p.equipWeapons(eq);
         }
         case "attack" -> {
+          String eName = sc.nextLine();
+        p.attackEnemy(new Enemy());
 
         }
         case "inventory" -> {
           System.out.println(p.getPlayerBag());
+        }
+        case"weapons" -> {
+          System.out.println(p.getEquippedWeapons());
         }
         case "help" -> {
           ui.helpMenu();

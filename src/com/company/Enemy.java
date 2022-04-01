@@ -16,6 +16,10 @@ public class Enemy {
     this.weaponEnemy.add(weapon);
     }
 
+  public Enemy() {
+  this.enemyName = getEnemyName();
+  }
+
   public ArrayList<Item> getWeaponEnemy() {
     return weaponEnemy;
   }
@@ -26,9 +30,11 @@ public class Enemy {
     room.removeEnemy(room.getEnemies().get(0));
     return "You have killed " + enemyName + "!";
   }
+  public void attackedByPlayer(Weapon weapon) {
+    Weapon equippedWeaponPlayer = weapon;
+    setHealthP(equippedWeaponPlayer.damage);
 
-
-
+  }
 
 
   public String getEnemyName() {

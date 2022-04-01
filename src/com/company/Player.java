@@ -63,6 +63,27 @@ public Weapon equipW(Weapon weapon) {
   }
 }
 
+// ATTACK
+public String attackEnemy(Enemy enemy) {
+
+
+
+  ArrayList<Item> playersWeapon = equippedWeapons;
+
+  if (!playersWeapon.isEmpty()) {
+    ((Weapon) getEquippedWeapons().get(0)).setAvailableUsesSpent();
+    if (enemy != null) {
+      enemy.attackedByPlayer((Weapon) playersWeapon.get(0));
+      return attackedByEnemy((Weapon) enemy.getWeaponEnemy().get(0));
+    }
+  }
+  return null;
+}
+
+public String attackedByEnemy(Weapon weapon){
+    Weapon enemysWeapon = weapon;
+  return null;
+}
 
 // SWITCH METODERNE
 
