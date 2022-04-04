@@ -23,13 +23,13 @@ public class Enemy {
   public ArrayList<Item> getWeaponEnemy() {
     return weaponEnemy;
   }
-  public void dropWeapon(Weapon weapon, Room room) {
-    room.addItem(weapon);
-  }
-  public String removeDeadEnemy(Room room){
-    room.removeEnemy(room.getEnemies().get(0));
-    return "You have killed " + enemyName + "!";
-  }
+  //public void dropWeapon(Weapon weapon, Room room) {
+   // room.addItem(weapon);
+ // }
+ // public String removeDeadEnemy(Room room){
+  //  room.removeEnemy(room.getEnemies().get(0));
+  //  return "You have killed " + enemyName + "!";
+ // }
   public void attackedByPlayer(Weapon weapon) {
     Weapon equippedWeaponPlayer = weapon;
     setHealthP(equippedWeaponPlayer.damage);

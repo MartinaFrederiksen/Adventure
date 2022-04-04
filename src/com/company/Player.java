@@ -148,12 +148,6 @@ public String attackedByEnemy(Weapon weapon){
     return null;
   }
 
-  public String attackMet(String enemyName) {
-    //if (!equippedWeapons.isEmpty()) {
-     // ((Weapon) getEquippedWeapons().get(0)).setAvailableUsesSpent();
-
-    return null;
-  }
 
 
 // ARRAYLIST
@@ -200,15 +194,14 @@ public String attackedByEnemy(Weapon weapon){
   public Room getCurrentRoom() {
     return currentRoom;
   }
-  public void gameover() {
-    System.out.println("Sorry "+playerName + " you are dead!") ;
-    System.out.println("GAME OVER!");
-    System.exit(0);
-    return;
+  //public void gameover() {
+  //  System.out.println("Sorry "+playerName + " you are dead!") ;
+  //  System.out.println("GAME OVER!");
+  //  System.exit(0);
+  //  return;
   }
   // Lav player position metode
   // Lav player move metode, så player kan bevæge sig rundt
   // Lav
 
 
-}
