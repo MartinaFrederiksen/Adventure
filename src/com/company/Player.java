@@ -45,7 +45,7 @@ public class Player {
   // Siden tingene bliver automatisk bliver tilføjet til begge inventory, fjernes de nu.
 
 
-// EQUIP
+// EQUIP WEAPON // tilføjer våbnet til arraylist for Weapons.
 public Weapon equipW(Weapon weapon) {
 
   boolean isEmpty = equippedWeapons.isEmpty();
@@ -66,9 +66,7 @@ public Weapon equipW(Weapon weapon) {
 // ATTACK
 public String attackEnemy(Enemy enemy) {
 
-
-
-  ArrayList<Item> playersWeapon = equippedWeapons;
+    ArrayList<Item> playersWeapon = equippedWeapons;
 
   if (!playersWeapon.isEmpty()) {
     ((Weapon) getEquippedWeapons().get(0)).setAvailableUsesSpent();
@@ -83,6 +81,11 @@ public String attackEnemy(Enemy enemy) {
 public String attackedByEnemy(Weapon weapon){
     Weapon enemysWeapon = weapon;
   return null;
+  if ((!currentRoom.getEnemies().isEmpty())) {
+  setHealthP(enemysWeapon.getDamage());
+  return null;
+    System.out.println("You have been attacked by " + currentRoom.getEnemies());
+  }
 }
 
 // SWITCH METODERNE
@@ -131,7 +134,7 @@ public String attackedByEnemy(Weapon weapon){
     return null;
   }
 
-  public Availability equipWeapons (String itemName){
+  public Availability equipWeapons (String itemName) {
 
     Item item = findItem(itemName);
     if (item == null) {
@@ -146,8 +149,8 @@ public String attackedByEnemy(Weapon weapon){
       }
     }
     return null;
-  }
 
+  }
 
 
 // ARRAYLIST
@@ -167,6 +170,16 @@ public String attackedByEnemy(Weapon weapon){
   public void removeItemPlayerBag(Item item) {
     playerBag.remove(item);
   }
+
+  /* public void addEquippedWeapon(Item item) {
+  equippedWeapons.add(item);
+  }
+  public void removeEquppiedWeapon(Item item){
+    equippedWeapons.remove(item);
+  }
+   */
+
+
 
 
 

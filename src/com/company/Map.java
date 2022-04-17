@@ -10,19 +10,6 @@ public class Map {
   // Declare variables
   Scanner sc = new Scanner(System.in);
 
-
-  Item needle = new Item("Needle", "A needle that contains liquid, that makes you immune to puss poison");
-  Item flashlight = new Item("Flashlight", "A flashlight with batteries in");
-  Item key = new Item("Key", "A mysterious key");
-  Item firstaidkit = new Item("First aid kit", "A first aid kit if you get wounded");
-  Item Healing = new Item("Heling Potion", "...description pending... ");
-  Item LockPicker = new Item("LockPicker", " ...description pending...");
-
-  // Enemy Weapons
-  MeleeWeapon knifeEnemy = new MeleeWeapon("knife", "It's very sharp!", -20);
-  MeleeWeapon pussPoison = new MeleeWeapon("puss poison", "", -50);
-
-
   // Declare rooms = room number + room descriptions
   Room room1 = new Room("Room 1", room1());
   Room room2 = new Room("Room 2", room2());
@@ -33,8 +20,6 @@ public class Map {
   Room room7 = new Room("Room 7", room7());
   Room room8 = new Room("Room 8", room8());
   Room room9 = new Room("Room 9", room9());
-
-
 
 
   // Room descriptions using String --- add to the declaring of rooms (SKRIV FLERE DESKRIPTIONER)
@@ -62,7 +47,7 @@ public class Map {
   }
 
   String room5() { //Kontor
-    return "\ncongratulations - you have 10 second til every exit locks \nHurry make a desicion before you are trapped for ever.";
+    return "\ncongratulations - you have 10 second til every exit locks \nHurry make a decision before you are trapped for ever.";
   }
 
   String room6() { //værelse
@@ -84,25 +69,26 @@ public class Map {
         "\nHmmm... That looks like a key";
   }
 
+  // Enemy Weapons
+  MeleeWeapon knifeEnemy = new MeleeWeapon("knife", "It's very sharp!", -20);
+  MeleeWeapon pussPoison = new MeleeWeapon("puss poison", "", -50);
+
   public void placeItems() { //Place the items in the different rooms
     room1.addItem(new Food("banana", "Fresh and ripe banana",20));
     room1.addItem(new MeleeWeapon("knife", "look a knife!", -20));
     room2.addItem(new RangedWeapon("gun", "9mm Glock", -50));
     room2.addItem(new Food ("waterbottle", "", 80));
-    room3.getItemsInRoom().add(key);
-    room2.addItem(new RangedWeapon("rifle", "brown rifle", -70));
-    room4.getItemsInRoom().add(needle);
-    room5.getItemsInRoom().add(firstaidkit);
-    room6.getItemsInRoom().add(Healing);
-    room6.addItem(new Food("bluepill", "Try your luck...",-20));
-    room7.getItemsInRoom().add(LockPicker);
-    room8.addItem(new MeleeWeapon("axe", "look a axe!", -40));
-    room9.getItemsInRoom().add(flashlight);
-    room9.addItem(new Food ("apple","half eaten apple", 20) );
+    room3.addItem(new RangedWeapon("rifle", "brown rifle", -70));
+    room3.addItem(new Item("key", "an old key"));
     room3.addEnemy(new Enemy("Zombie","old man with no teeth and hollow eyes", 70, knifeEnemy));
+    room4.addItem(new Item("needle", "an old key"));
     room4.addEnemy(new Enemy("Dog","zombie dog with white puss coming out of its mouth", 70,pussPoison));
-
-
+    room5.addItem(new Item("flashdrive", "You've found the flash! U must careful as this flash drive contains sensitive information about HAPPY SMILE HOSPITAL"));
+    room6.addItem(new Food("Healingpotion", "This potion will heal all wounds",100));
+    room7.addItem(new Food("bluepill", "Try your luck...",-20));
+    room7.addItem(new Item("lockpicker", "this is lockpicker opens all doors"));
+    room8.addItem(new MeleeWeapon("axe", "look a axe!", -40));
+    room9.addItem(new Food ("apple","half eaten apple", 20) );
   }
 
 

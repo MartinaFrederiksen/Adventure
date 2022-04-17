@@ -55,7 +55,9 @@ public class UserInterface {
     System.out.println("\"Equip\"| Equip weapons");
     System.out.println("\"Health\" | View health percentage");
     System.out.println("\"Attack\" | Attack enemies");
+    System.out.println("\"Weapons\" | View your available weapons");
     System.out.println("\"Inventory\" | View your bag of things");
+
 
 
   }
